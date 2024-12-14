@@ -1,0 +1,83 @@
+/* styles.css */
+main {
+	display: flex;
+
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+}
+
+
+#card-pool {
+	flex: 8;
+}
+
+#deck {
+	flex: 4;
+}
+
+.card {
+	position: relative;
+	border: 1px solid #000;
+	padding: 10px;
+	background-color: #e0e0e0;
+	cursor: grab;
+	width: 100px;
+	text-align: center;
+}
+
+.card:after {
+	content: attr(data-count);
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	background-color: #ff5555;
+	color: #fff;
+	font-size: 12px;
+	padding: 2px 5px;
+	border-radius: 50%;
+	display: none;
+	/* Visible seulement si nécessaire */
+}
+
+.card[data-count]:after {
+	display: inline-block;
+}
+.card:active {
+	cursor: grabbing;
+	transform: scale(1.1);
+	/* Zoom lorsqu'on glisse */
+}
+
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	min-height: 150px;
+	/* Pour voir clairement les zones */
+	border: 2px dashed #ccc;
+	padding: 10px;
+	background-color: #f9f9f9;
+}
+
+#deck-cards {
+	background-color: #d9f9d9;
+	flex: 40%;
+	/* Couleur différente pour le deck */
+}
+
+.trash-zone {
+	width: 100%;
+	height: 50px;
+	border: 2px dashed red;
+	text-align: center;
+	line-height: 50px;
+	color: red;
+	margin-top: 10px;
+}
+
+.trash-zone.dragover {
+	background-color: rgba(255, 0, 0, 0.2);
+}
